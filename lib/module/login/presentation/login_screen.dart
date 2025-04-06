@@ -1,12 +1,18 @@
+import 'package:assignment2_mobileapp_prototype/module/login/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+  final loginController = Get.put(LoginController());
+  final userTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _body(),
     );
   }
@@ -15,16 +21,21 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.all(40.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 300),
-          _loginText(),
-          const SizedBox(height: 20),
-          _loginFields(),
-          const SizedBox(height: 50),
-          _loginButton()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(100.0),
+                child: const Image(image: AssetImage('assets/mixnmatch.png'))),
+            const SizedBox(height: 40),
+            _loginText(),
+            const SizedBox(height: 20),
+            _loginFields(),
+            const SizedBox(height: 50),
+            _loginButton()
+          ],
+        ),
       ),
     ));
   }
@@ -68,8 +79,9 @@ class LoginScreen extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[200]!))),
-      child: const TextField(
-        decoration: InputDecoration(
+      child: TextField(
+        controller: userTextController,
+        decoration: const InputDecoration(
             border: InputBorder.none,
             hintText: 'Username',
             hintStyle: TextStyle(color: Colors.grey)),
@@ -80,11 +92,25 @@ class LoginScreen extends StatelessWidget {
   Widget _password() {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: const TextField(
-        decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: 'Password',
-            hintStyle: TextStyle(color: Colors.grey)),
+      child: Obx(
+        () => TextField(
+          controller: passwordTextController,
+          obscureText: loginController.obscureText(),
+          decoration: InputDecoration(
+              suffixIcon: IconButton(
+                onPressed: () =>
+                    loginController.obscureText(!loginController.obscureText()),
+                icon: Icon(
+                  size: 18,
+                  loginController.obscureText()
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                ),
+              ),
+              border: InputBorder.none,
+              hintText: 'Password',
+              hintStyle: const TextStyle(color: Colors.grey)),
+        ),
       ),
     );
   }
@@ -99,11 +125,28 @@ class LoginScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(50),
             color: const Color.fromRGBO(49, 39, 79, 1),
           ),
-          child: const Center(
-            child: Text(
-              'Login',
-              style: TextStyle(color: Colors.white),
-            ),
+          child: Obx(
+            () => loginController.loadingState()
+                ? const Center(
+                    child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ))
+                : InkWell(
+                    onTap: () => loginController.login(
+                      userTextController.text,
+                      passwordTextController.text,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
           ),
         ));
   }
