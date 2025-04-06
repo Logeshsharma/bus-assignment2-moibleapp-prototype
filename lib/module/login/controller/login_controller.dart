@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
 import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
 import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/module/task/presentation/task_screen.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,11 +11,12 @@ import 'package:http/http.dart' as http;
 
 class LoginController extends GetxController {
   RxBool loadingState = false.obs;
-
   RxBool obscureText = true.obs;
+  final usernameFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
 
   Future<void> login(String username, String password) async {
-    AppUtils.removeFocus();
+    removeFocus();
     if (username.isEmpty || password.isEmpty) {
       showUsernamePasswordDialog(
         'Username and Password Required',
@@ -39,6 +41,8 @@ class LoginController extends GetxController {
               duration: Duration(seconds: 3)));
           SessionManager.instance.saveUserSession(
               User.fromJson(jsonDecode(response.body) as Map<String, dynamic>));
+
+          Get.off(const TaskScreen());
         } else if (response.statusCode == 401) {
           showUsernamePasswordDialog(
             'Invalid',
@@ -63,5 +67,10 @@ class LoginController extends GetxController {
             duration: Duration(seconds: 3)),
       );
     }
+  }
+
+  void removeFocus() {
+    usernameFocusNode.unfocus();
+    passwordFocusNode.unfocus();
   }
 }

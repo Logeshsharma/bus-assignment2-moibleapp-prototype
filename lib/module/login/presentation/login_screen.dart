@@ -14,19 +14,23 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: _body(),
+      body: GestureDetector(
+        onTap: () => loginController.removeFocus(),
+        child: _body(),
+      ),
     );
   }
 
   Widget _body() {
     return SafeArea(
-        child: Padding(
-      padding: const EdgeInsets.all(40.0),
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        child: SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: const EdgeInsets.all(40.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 40),
             const MixNMatchLogo(),
             const SizedBox(height: 40),
             _loginText(),
@@ -81,6 +85,7 @@ class LoginScreen extends StatelessWidget {
           border: Border(bottom: BorderSide(color: Colors.grey[200]!))),
       child: TextField(
         controller: userTextController,
+        focusNode: loginController.usernameFocusNode,
         decoration: const InputDecoration(
             border: InputBorder.none,
             hintText: 'Username',
@@ -95,6 +100,7 @@ class LoginScreen extends StatelessWidget {
       child: Obx(
         () => TextField(
           controller: passwordTextController,
+          focusNode: loginController.passwordFocusNode,
           obscureText: loginController.obscureText(),
           decoration: InputDecoration(
               suffixIcon: IconButton(
