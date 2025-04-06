@@ -1,5 +1,10 @@
 import 'dart:convert';
 
+import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
+import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
+import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,77 +14,54 @@ class LoginController extends GetxController {
   RxBool obscureText = true.obs;
 
   Future<void> login(String username, String password) async {
-    loadingState(true);
+    AppUtils.removeFocus();
+    if (username.isEmpty || password.isEmpty) {
+      showUsernamePasswordDialog(
+        'Username and Password Required',
+        'Please enter both username and password to continue.',
+      );
+    } else if (await AppUtils.isOnline()) {
+      loadingState(true);
 
-    var response = await http.post(
-      Uri.parse('https://bus-test-f592.onrender.com/mobile_login'),
-      body: json.encode({"username": "amy", "password": "amy.pw"}),
-      headers: {'Content-Type': 'application/json'},
-    );
+      try {
+        var response = await http.post(
+          Uri.parse('https://bus-test-f592.onrender.com/mobile_login'),
+          body: json.encode({"username": username, "password": password}),
+          headers: {'Content-Type': 'application/json'},
+        );
 
-    if (response.statusCode == 200) {
-      loadingState(false);
-      // return User.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+        loadingState(false);
+
+        if (response.statusCode == 200) {
+          Get.showSnackbar(const GetSnackBar(
+              backgroundColor: Color.fromARGB(255, 83, 188, 97),
+              message: 'Successfully logged in :)',
+              duration: Duration(seconds: 3)));
+          SessionManager.instance.saveUserSession(
+              User.fromJson(jsonDecode(response.body) as Map<String, dynamic>));
+        } else if (response.statusCode == 401) {
+          showUsernamePasswordDialog(
+            'Invalid',
+            'Please enter correct username and password to continue.',
+          );
+        } else {
+          throw Exception('Internal server issue');
+        }
+      } catch (e) {
+        Get.showSnackbar(
+          const GetSnackBar(
+              backgroundColor: Color.fromARGB(255, 200, 86, 86),
+              message: 'Something went wrong, try agian later.',
+              duration: Duration(seconds: 3)),
+        );
+      }
     } else {
-      loadingState(false);
-      throw Exception('Internal server issue');
+      Get.showSnackbar(
+        const GetSnackBar(
+            backgroundColor: Color.fromARGB(255, 200, 86, 86),
+            message: 'Please check you internet connection!',
+            duration: Duration(seconds: 3)),
+      );
     }
   }
-}
-
-User userFromJson(String str) => User.fromJson(json.decode(str));
-
-String userToJson(User data) => json.encode(data.toJson());
-
-class User {
-  final String? email;
-  final String? message;
-  final String? role;
-  final String? status;
-  final int? userId;
-  final String? username;
-
-  User({
-    this.email,
-    this.message,
-    this.role,
-    this.status,
-    this.userId,
-    this.username,
-  });
-
-  User copyWith({
-    String? email,
-    String? message,
-    String? role,
-    String? status,
-    int? userId,
-    String? username,
-  }) =>
-      User(
-        email: email ?? this.email,
-        message: message ?? this.message,
-        role: role ?? this.role,
-        status: status ?? this.status,
-        userId: userId ?? this.userId,
-        username: username ?? this.username,
-      );
-
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        email: json["email"],
-        message: json["message"],
-        role: json["role"],
-        status: json["status"],
-        userId: json["userId"],
-        username: json["username"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "email": email,
-        "message": message,
-        "role": role,
-        "status": status,
-        "userId": userId,
-        "username": username,
-      };
 }

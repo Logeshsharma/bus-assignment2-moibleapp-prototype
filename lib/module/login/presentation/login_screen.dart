@@ -1,4 +1,5 @@
 import 'package:assignment2_mobileapp_prototype/module/login/controller/login_controller.dart';
+import 'package:assignment2_mobileapp_prototype/module/login/presentation/mix_n_match_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:get/get.dart';
@@ -22,12 +23,11 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
       padding: const EdgeInsets.all(40.0),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(100.0),
-                child: const Image(image: AssetImage('assets/mixnmatch.png'))),
+            const MixNMatchLogo(),
             const SizedBox(height: 40),
             _loginText(),
             const SizedBox(height: 20),
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget _loginText() {
     return FadeInUp(
-        duration: const Duration(milliseconds: 1500),
+        duration: const Duration(seconds: 2),
         child: const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text('Login',
@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget _loginFields() {
     return FadeInUp(
-      duration: const Duration(milliseconds: 1700),
+      duration: const Duration(seconds: 3),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -117,7 +117,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget _loginButton() {
     return FadeInUp(
-        duration: const Duration(milliseconds: 1700),
+        duration: const Duration(seconds: 3),
         child: Container(
           height: 50,
           margin: const EdgeInsets.symmetric(horizontal: 60),
@@ -142,7 +142,7 @@ class LoginScreen extends StatelessWidget {
                         'Login',
                         style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w400,
                             fontSize: 16),
                       ),
                     ),
