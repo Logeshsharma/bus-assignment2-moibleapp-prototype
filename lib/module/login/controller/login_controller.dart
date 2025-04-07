@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
 import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
 import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
-import 'package:assignment2_mobileapp_prototype/module/task/presentation/task_screen.dart';
+import 'package:assignment2_mobileapp_prototype/module/group/presentation/group_screen.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,11 +38,11 @@ class LoginController extends GetxController {
           Get.showSnackbar(const GetSnackBar(
               backgroundColor: Color.fromARGB(255, 83, 188, 97),
               message: 'Successfully logged in :)',
-              duration: Duration(seconds: 3)));
+              duration: Duration(seconds: 2)));
           SessionManager.instance.saveUserSession(
               User.fromJson(jsonDecode(response.body) as Map<String, dynamic>));
-
-          Get.off(const TaskScreen());
+         await Future.delayed(const Duration(seconds: 2));
+          Get.off(const GroupScreen());
         } else if (response.statusCode == 401) {
           showUsernamePasswordDialog(
             'Invalid',

@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppUtils {
   static Future<bool> isNetworkAvailable() async {
@@ -17,7 +18,17 @@ class AppUtils {
     return true;
   }
 
-  static removeFocus(){
+  static removeFocus() {
     FocusScope.of(Get.context!).unfocus();
+  }
+
+  static setLoginState() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('logged-in', true);
+  }
+
+  static Future<bool> getLoginState() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('logged-in') ?? false;
   }
 }
