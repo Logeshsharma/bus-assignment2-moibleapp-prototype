@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
 import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
+import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/group.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:get/get.dart';
@@ -20,10 +21,13 @@ class GroupController extends GetxController {
       loadingState(true);
 
       try {
+        final groupId = SessionManager.instance.getUserSession()?.groupId ?? -1;
         var response = await http.get(
-          Uri.parse('https://bus-test-f592.onrender.com/get_group/1'),
+          Uri.parse('https://bus-test-f592.onrender.com/get_group/$groupId'),
           headers: {'Content-Type': 'application/json'},
         );
+
+        await Future.delayed(const Duration(seconds: 2));
 
         loadingState(false);
 

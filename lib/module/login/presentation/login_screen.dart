@@ -1,3 +1,4 @@
+import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/controller/login_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/presentation/mix_n_match_logo.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: AppColor.secondary,
+      ),
+      backgroundColor: AppColor.secondary,
       body: GestureDetector(
         onTap: () => loginController.removeFocus(),
         child: _body(),
@@ -26,18 +30,17 @@ class LoginScreen extends StatelessWidget {
         child: SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.only(left: 40, right: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 40),
             const MixNMatchLogo(),
             const SizedBox(height: 40),
             _loginText(),
             const SizedBox(height: 20),
             _loginFields(),
             const SizedBox(height: 50),
-            _loginButton()
+            _loginButton(),
           ],
         ),
       ),
@@ -47,11 +50,11 @@ class LoginScreen extends StatelessWidget {
   Widget _loginText() {
     return FadeInUp(
         duration: const Duration(seconds: 2),
-        child: const Padding(
-          padding: EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text('Login',
               style: TextStyle(
-                color: Color.fromRGBO(49, 39, 79, 1),
+                color: AppColor.primary,
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
               )),
@@ -64,12 +67,12 @@ class LoginScreen extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-            boxShadow: const [
+            color: AppColor.secondary,
+            boxShadow: [
               BoxShadow(
-                  color: Color.fromRGBO(196, 135, 198, .3),
+                  color: AppColor.tertiary,
                   blurRadius: 20,
-                  offset: Offset(0, 10))
+                  offset: const Offset(0, 10))
             ]),
         child: Column(
           children: [_userName(), _password()],
@@ -128,26 +131,24 @@ class LoginScreen extends StatelessWidget {
           height: 50,
           margin: const EdgeInsets.symmetric(horizontal: 60),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: const Color.fromRGBO(49, 39, 79, 1),
-          ),
+              borderRadius: BorderRadius.circular(50), color: AppColor.primary),
           child: Obx(
             () => loginController.loadingState()
-                ? const Center(
+                ? Center(
                     child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Colors.white,
+                    color: AppColor.secondary,
                   ))
                 : InkWell(
                     onTap: () => loginController.login(
                       userTextController.text,
                       passwordTextController.text,
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         'Login',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.secondary,
                             fontWeight: FontWeight.w400,
                             fontSize: 16),
                       ),
