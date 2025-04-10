@@ -154,7 +154,7 @@ class _GroupScreenState extends State<GroupScreen> {
   Widget _profileImageShimmer() {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300]!,
-      highlightColor: AppColor.tertiary,
+      highlightColor: Colors.grey[100]!,
       child: const CircleAvatar(
         radius: 35,
       ),
@@ -164,7 +164,7 @@ class _GroupScreenState extends State<GroupScreen> {
   Widget _usernameShimmer() {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300]!,
-      highlightColor: AppColor.tertiary,
+      highlightColor: Colors.grey[100]!,
       child: Container(
         width: Get.width * 0.4,
         height: 15,
@@ -179,7 +179,7 @@ class _GroupScreenState extends State<GroupScreen> {
   Widget _roleShimmer() {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300]!,
-      highlightColor: AppColor.tertiary,
+      highlightColor: Colors.grey[100]!,
       child: Container(
         width: Get.width * 0.2,
         height: 15,

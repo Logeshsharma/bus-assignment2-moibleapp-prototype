@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:assignment2_mobileapp_prototype/common/api_constant.dart';
 import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
 import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
 import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
@@ -27,7 +28,7 @@ class LoginController extends GetxController {
 
       try {
         var response = await http.post(
-          Uri.parse('https://bus-test-f592.onrender.com/mobile_login'),
+          Uri.parse('${ApiConstant.baseUrl}login_mobile'),
           body: json.encode({"username": username, "password": password}),
           headers: {'Content-Type': 'application/json'},
         );
