@@ -1,11 +1,18 @@
+import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TaskListItem extends StatelessWidget {
   final String title;
   final String description;
-  final List<String> userAvatars; 
-  final VoidCallback onStatusChange;
+  final List<String> userAvatars;
+  final VoidCallback? onStatusChange;
   final String statusText;
+  final String startDatetime;
+  final String endDatetime;
+  final String location;
+  final String role;
+  final bool isLoading;
 
   const TaskListItem({
     super.key,
@@ -14,6 +21,11 @@ class TaskListItem extends StatelessWidget {
     required this.userAvatars,
     required this.onStatusChange,
     required this.statusText,
+    required this.startDatetime,
+    required this.endDatetime,
+    required this.location,
+    required this.role,
+    required this.isLoading,
   });
 
   @override
@@ -31,34 +43,102 @@ class TaskListItem extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(description,
                     style: Theme.of(context).textTheme.bodyMedium),
-                const SizedBox(height: 40),
-                SizedBox(
-                  height: 32,
-                  width: (userAvatars.length * 20.0) + 16,
-                  child: Stack(
-                    children: userAvatars.asMap().entries.map((entry) {
-                      final index = entry.key;
-                      final avatar = entry.value;
-                      return Positioned(
-                        left: index * 20.0,
-                        child: CircleAvatar(
-                          radius: 16,
-                          backgroundImage: NetworkImage(avatar),
-                          backgroundColor: Colors.grey[200],
-                        ),
-                      );
-                    }).toList(),
-                  ),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Icon(Icons.access_time, size: 18, color: AppColor.primary),
+                    const SizedBox(width: 4),
+                    Text(
+                      _formatDateRange(startDatetime, endDatetime),
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Icon(Icons.location_on, size: 18, color: AppColor.primary),
+                    const SizedBox(width: 4),
+                    Text(
+                      location,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 32,
+                      width: (userAvatars.length * 20.0) + 16,
+                      child: Stack(
+                        children: userAvatars.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final avatar = entry.value;
+                          return Positioned(
+                            left: index * 20.0,
+                            child: CircleAvatar(
+                              radius: 16,
+                              backgroundImage: NetworkImage(avatar),
+                              backgroundColor: Colors.grey[200],
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                    Visibility(
+                      visible: _buttonVisibility(),
+                      child: ElevatedButton(
+                        onPressed: isLoading ? null : _getOnTap(),
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 18,
+                                width: 18,
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : Text(statusText),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          ElevatedButton(
-            onPressed: onStatusChange,
-            child: Text(statusText),
-          ),
         ],
       ),
     );
+  }
+
+  VoidCallback? _getOnTap() {
+    if (role == 'Student' &&
+        (statusText == 'Rewarded' ||
+            statusText == 'Completed' ||
+            statusText == 'Validated')) {
+      return () {};
+    } else {
+      if (statusText.isEmpty) {
+        return () {};
+      }
+    }
+    return onStatusChange;
+  }
+
+  bool _buttonVisibility() {
+    if (role != 'Student' && statusText.isEmpty) {
+      return false;
+    }
+
+    return true;
+  }
+
+  String _formatDateRange(String start, String end) {
+    final startDate =
+        DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(start);
+    final endDate = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(end);
+    final formatter = DateFormat('hh:mm a');
+
+    return '${formatter.format(startDate.toLocal())} - ${formatter.format(endDate.toLocal())}';
   }
 }
