@@ -23,6 +23,11 @@ This prototype focuses on demonstrating the foundational features of the platfor
 - 💬 **Chat System**: Group chat and private chat with mentors.
 - 🔄 **Group Reassignment**: Request group changes if needed.
 
+## Demo 
+
+[![Demo Video](https://bham-my.sharepoint.com/personal/lxk496_student_bham_ac_uk/Documents/BUS-DEMO/Screen%20Recording%202025-04-12%20at%2012.33.13%20AM.mov?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aoJ89H)](https://bham-my.sharepoint.com/personal/lxk496_student_bham_ac_uk/Documents/BUS-DEMO/Screen%20Recording%202025-04-12%20at%2012.33.13%20AM.mov?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aoJ89H)
+
+
 ## 🛠️ Tech Stack - Mobile app
 
 - **Prototype**: Flutter (Dart)
