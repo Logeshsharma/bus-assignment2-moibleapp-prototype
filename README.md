@@ -1,16 +1,80 @@
-# assignment2_mobileapp_prototype
+# Mix&Match - Speed Friending App for University Freshers
 
-A new Flutter project.
+Mix&Match is a mobile app prototype designed to support freshers and international students in overcoming common social, cultural, and academic challenges when entering university. The app creates dynamic peer groups, encourages group-based activities, and connects users with mentors to improve social integration and overall well-being.
 
-## Getting Started
+## 📌 Project Overview
 
-This project is a starting point for a Flutter application.
+University life can be overwhelming, especially for international students. Mix&Match helps by:
+- Forming diverse student groups automatically.
+- Assigning mentors for guidance and support.
+- Promoting group tasks and social events.
+- Providing chat features (group and private).
+- Encouraging participation with rewards.
 
-A few resources to get you started if this is your first Flutter project:
+This prototype focuses on demonstrating the foundational features of the platform with clean navigation and modular design.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🎯 Key Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🔐 **Student Authentication**: Register/login using university credentials.
+- 👥 **Group Formation**: Randomly assign students into groups of 5, ensuring diversity.
+- 🎓 **Mentor Assignment**: Each group gets a mentor for guidance.
+- 📆 **Event Management**: View events and participate in group activities.
+- 🧩 **Task System**: Complete tasks, upload evidence, and receive rewards.
+- 💬 **Chat System**: Group chat and private chat with mentors.
+- 🔄 **Group Reassignment**: Request group changes if needed.
+
+## 🛠️ Tech Stack - Mobile app
+
+- **Prototype**: Flutter (Dart)
+- **State Management:** GetX 
+- **Target Platform:** Android (Prototype phase)
+
+## 🛠️ How to Run the App
+
+To run the prototype locally:
+
+1. Clone the repository or unzip the folder.
+2. Navigate to the project directory.
+3. Run the following commands:
+
+```bash
+flutter pub get
+flutter run
+```
+
+> ⚠️ Make sure you have Flutter SDK installed and your device/emulator is set up properly.
+
+## 👤 Stakeholders
+
+- **Students and Mentors :** Primary users for accessing resources and managing their university life.
+- **University Staff:** Potential future role in backend support (not in prototype).
+- **System Admin:** System monitoring.
+
+## 📂 Project Structure
+
+```
+lib/
+├── main.dart
+├── module/
+│   ├── home/
+│   ├── tasks/
+│   └── group/
+```
+
+Each module includes:
+- `controller/` – Logic and state handling
+- `presentation/` – UI components
+
+## 👥 Team Members
+
+- Gurjeevan Pannu (2897368)
+- Charlotte Ashmore (2897025)
+- Logesh Sharma Kalimuthan (2845496)
+- Mashrur Hossain Chowdhury Ritom (2867717)
+- Arseniy Vasilko (2072309)
+
+Each team member contributed equally (20%).
+
+## 📄 License
+
+*This is a university prototype project. Not intended for commercial use.*
