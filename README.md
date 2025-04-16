@@ -67,11 +67,11 @@ Each module includes:
 
 ## 👥 Team Members
 
-- Gurjeevan Pannu (2897368)
+- Arseniy Vasilko (2072309)
 - Charlotte Ashmore (2897025)
+- Gurjeevan Pannu (2897368)
 - Logesh Sharma Kalimuthan (2845496)
 - Mashrur Hossain Chowdhury Ritom (2867717)
-- Arseniy Vasilko (2072309)
 
 Each team member contributed equally (20%).
 
