@@ -45,7 +45,6 @@ class HomeScreen extends StatelessWidget {
           /// GroupScreen
           const GroupScreen()
 
-          
         ][homeController.currentPageIndex()],
       ),
     );

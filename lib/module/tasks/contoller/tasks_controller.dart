@@ -1,17 +1,22 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:assignment2_mobileapp_prototype/common/api_constant.dart';
 import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
-import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
 import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+enum TaskState {
+  init,
+  loading,
+  success,
+  empty,
+}
+
 class TasksController extends GetxController {
-  RxBool loadingState = false.obs;
+  Rx<TaskState> taskState = TaskState.init.obs;
 
   RxBool myAnimation = false.obs;
 
@@ -21,7 +26,7 @@ class TasksController extends GetxController {
 
   Future<void> fetchTasks() async {
     if (await AppUtils.isOnline()) {
-      loadingState(true);
+      taskState(TaskState.loading);
 
       try {
         final groupId = SessionManager.instance.getUserSession()?.groupId ?? -1;
@@ -32,41 +37,30 @@ class TasksController extends GetxController {
 
         await Future.delayed(const Duration(seconds: 2));
 
-        loadingState(false);
-
         if (response.statusCode == 200) {
-          final group = GroupTask.fromJson(
-              jsonDecode(response.body) as Map<String, dynamic>);
+          final group = GroupTask.fromJson(jsonDecode(response.body));
           final sortedTasks = group.tasks!
             ..sort((a, b) => b.id!.compareTo(a.id!));
 
           tasks(sortedTasks);
-          Future.delayed(const Duration(milliseconds: 100), () {
-            myAnimation(true);
-          });
-        } else if (response.statusCode == 401) {
-          showUsernamePasswordDialog(
-            'Invalid',
-            'Please enter correct username and password to continue.',
-          );
+          if (tasks.isNotEmpty) {
+            taskState(TaskState.success);
+            Future.delayed(const Duration(milliseconds: 100), () {
+              myAnimation(true);
+            });
+          } else {
+            taskState(TaskState.empty);
+          }
         } else {
           throw Exception('Internal server issue');
         }
       } catch (e) {
-        Get.showSnackbar(
-          const GetSnackBar(
-              backgroundColor: Color.fromARGB(255, 200, 86, 86),
-              message: 'Something went wrong, try agian later.',
-              duration: Duration(seconds: 3)),
-        );
+        _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
+            'Something went wrong, try agian later.');
       }
     } else {
-      Get.showSnackbar(
-        const GetSnackBar(
-            backgroundColor: Color.fromARGB(255, 200, 86, 86),
-            message: 'Please check you internet connection!',
-            duration: Duration(seconds: 3)),
-      );
+      _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
+          'Please check you internet connection!');
     }
   }
 
@@ -94,18 +88,25 @@ class TasksController extends GetxController {
         final data = jsonDecode(response.body);
         if (data['status'] == 'Updated') {
           await fetchTasks();
-          Get.snackbar('Success', 'Task status updated',
-              backgroundColor: Colors.green, colorText: Colors.white);
+
+          _showSnackbar(Colors.green, 'Task status updated');
         } else {
-          Get.snackbar('Failed', 'Could not update status',
-              backgroundColor: Colors.red, colorText: Colors.white);
+          _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
+              'Could not update status');
         }
       } else {
-        throw Exception('Failed to update status');
+        throw Exception('Failed to update status!');
       }
     } catch (e) {
-      Get.snackbar('Error', 'Something went wrong: $e',
-          backgroundColor: Colors.red, colorText: Colors.white);
+      _showSnackbar(
+          const Color.fromARGB(255, 189, 103, 96), 'Something went wrong');
     }
+  }
+
+  void _showSnackbar(Color color, String message) {
+    Get.showSnackbar(GetSnackBar(
+        backgroundColor: color,
+        message: message,
+        duration: const Duration(seconds: 3)));
   }
 }
