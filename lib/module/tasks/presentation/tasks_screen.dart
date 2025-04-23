@@ -52,6 +52,8 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.primary,
+      appBar: _appBar(),
       body: RefreshIndicator(
         onRefresh: () async {
           await tasksController.fetchTasks();
@@ -66,7 +68,6 @@ class _TasksScreenState extends State<TasksScreen> {
           ],
         ),
       ),
-      appBar: _appBar(),
     );
   }
 
