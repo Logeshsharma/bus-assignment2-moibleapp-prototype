@@ -81,10 +81,22 @@ Each module includes:
 
 ## 👥 Team Members
 
+### Mobile app contribution 
+
+- Logesh Sharma Kalimuthan (2845496) 
+
+### Web app contribution (Admin panel)
+
 - Arseniy Vasilko (2072309)
 - Charlotte Ashmore (2897025)
 - Gurjeevan Pannu (2897368)
-- Logesh Sharma Kalimuthan (2845496)
+- Logesh Sharma Kalimuthan (2845496) 
 - Mashrur Hossain Chowdhury Ritom (2867717)
 
 Each team member contributed equally (20%).
+
+### 👨🏽‍💻 [Git Log](https://github.com/Logeshsharma/bus-assignment2-moibleapp-prototype/blob/main/git-log.txt)
+
+
+
+
