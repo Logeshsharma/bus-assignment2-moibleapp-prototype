@@ -20,11 +20,11 @@ This prototype focuses on demonstrating the foundational features of the platfor
 
 ## Step 1: Install Flutter SDK
 
-1. Download Flutter SDK from Flutter official site - https://docs.flutter.dev/release/archive
+1. Download Flutter SDK from Flutter official site - [Flutter SDK Download](https://docs.flutter.dev/release/archive)
 
 Follow platform-specific installation guides:
-1. Flutter SDK and emulator Installation video for windows - https://www.youtube.com/watch?v=VFDbZk2xhO4
-2. Flutter SDK and emulator installation video for mac - https://www.youtube.com/watch?v=QG9bw4rWqrg
+1. Flutter SDK and emulator Installation video for windows - [Windows Installation Video](https://www.youtube.com/watch?v=VFDbZk2xhO4)
+2. Flutter SDK and emulator installation video for mac - [Mac Installation Video](https://www.youtube.com/watch?v=QG9bw4rWqrg)
 
 ## Step 2: Step up the project and run the prototype locally
 
@@ -73,6 +73,10 @@ Each module includes:
 - 👩🏻‍🎓 **Task - Student**: Complete tasks, and receive rewards (Just a status for Prototype Phase).
 - 👩🏻‍💼 **Task - Mentor**: Validate tasks, and approve rewards (Just a status for Prototype Phase).
 - 🏠 **Home**: Hold Task and group features.
+
+## 🖥️ The Webapp Admin page
+
+- 👩🏻‍💻 *Admin*: [Admin panel (Prototype)](https://bus-test-f592.onrender.com/)
 
 
 ## 👥 Team Members
