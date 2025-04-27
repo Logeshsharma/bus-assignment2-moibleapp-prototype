@@ -10,6 +10,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+/* 
+
+ File: [login_controller.dart]
+ 1. This file [LoginController] is to hold the state of the login screen.
+ 2. The login method is an API call.
+        - Which accepts [username] and [password]
+        - Check the app is connected to network
+        - Encode username and password to [json object]
+        - On Successful response - save the user in [SessionManager]
+        - During API call UI loading state is managed by [loadingState]
+        - Any Failure case update the user with proper message using [Get.showSnackbar]  
+        - [removeFocus] method is to handle the TextField focus - to hide the keyboard.
+
+  
+ Dependencies:
+ - [https://docs.flutter.dev/ui/animations/tutorial]
+
+*/
+
 class LoginController extends GetxController {
   RxBool loadingState = false.obs;
   RxBool obscureText = true.obs;

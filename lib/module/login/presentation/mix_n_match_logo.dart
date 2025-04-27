@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
  File: [mix_n_match_logo.dart]
  1. This file has [MixNMatchLogo] - (Widget or component used in Login screen)
  2. The logo is an asset file - assets/mixnmatch.png
- 3. Which is render in the UI with a basic animation using _logoAnimationController.
+ 3. The logo render in the UI with a basic animation using _logoAnimationController.
 
   
  Dependencies:
