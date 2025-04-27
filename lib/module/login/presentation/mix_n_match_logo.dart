@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+/* 
+
+ File: [mix_n_match_logo.dart]
+ 1. This file has [MixNMatchLogo] - (Widget or component used in Login screen)
+ 2. The logo is an asset file - assets/mixnmatch.png
+ 3. Which is render in the UI with a basic animation using _logoAnimationController.
+
+  
+ Dependencies:
+ - [https://docs.flutter.dev/ui/animations/tutorial]
+
+*/
+
 class MixNMatchLogo extends StatefulWidget {
   const MixNMatchLogo({super.key});
 
@@ -9,7 +22,7 @@ class MixNMatchLogo extends StatefulWidget {
 
 class _MixNMatchLogoState extends State<MixNMatchLogo>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
+  late final AnimationController _logoAnimationController = AnimationController(
     duration: const Duration(seconds: 2),
     vsync: this,
   );
@@ -17,21 +30,21 @@ class _MixNMatchLogoState extends State<MixNMatchLogo>
     begin: Offset.zero,
     end: const Offset(1.5, 0.0),
   ).animate(CurvedAnimation(
-    parent: _controller,
+    parent: _logoAnimationController,
     curve: Curves.elasticInOut,
   ));
 
   @override
   void initState() {
     super.initState();
-    _controller.forward().then((_) {
-    _controller.reverse(); 
-  });
+    _logoAnimationController.forward().then((_) {
+      _logoAnimationController.reverse();
+    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _logoAnimationController.dispose();
     super.dispose();
   }
 
