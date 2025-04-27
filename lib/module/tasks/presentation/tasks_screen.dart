@@ -1,4 +1,4 @@
-import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/core/session_manager.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/presentation/login_screen.dart';
 import 'package:assignment2_mobileapp_prototype/module/tasks/contoller/tasks_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/tasks/presentation/task_item.dart';
@@ -6,7 +6,7 @@ import 'package:assignment2_mobileapp_prototype/module/tasks/presentation/task_s
 import 'package:assignment2_mobileapp_prototype/service/model/tasks.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:flutter/material.dart';
-import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:get/get.dart';
 
 class TasksScreen extends StatefulWidget {

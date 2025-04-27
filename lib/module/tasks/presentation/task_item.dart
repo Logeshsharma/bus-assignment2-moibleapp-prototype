@@ -1,4 +1,4 @@
-import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

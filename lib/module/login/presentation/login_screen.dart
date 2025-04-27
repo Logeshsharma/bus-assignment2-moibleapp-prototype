@@ -1,4 +1,4 @@
-import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/controller/login_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/presentation/mix_n_match_logo.dart';
 import 'package:flutter/material.dart';

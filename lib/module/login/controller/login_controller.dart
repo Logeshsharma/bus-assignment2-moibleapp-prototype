@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:assignment2_mobileapp_prototype/common/api_constant.dart';
-import 'package:assignment2_mobileapp_prototype/common/app_utils.dart';
-import 'package:assignment2_mobileapp_prototype/common/info_dialog.dart';
-import 'package:assignment2_mobileapp_prototype/common/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/core/api_constant.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_utils.dart';
+import 'package:assignment2_mobileapp_prototype/core/info_dialog.dart';
+import 'package:assignment2_mobileapp_prototype/core/session_manager.dart';
 import 'package:assignment2_mobileapp_prototype/module/home/presentation/home.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:flutter/material.dart';

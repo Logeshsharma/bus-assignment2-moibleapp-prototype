@@ -1,4 +1,4 @@
-import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:assignment2_mobileapp_prototype/module/group/controller/group_controller.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/user.dart';
 import 'package:flutter/material.dart';

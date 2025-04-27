@@ -1,4 +1,4 @@
-import 'package:assignment2_mobileapp_prototype/common/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:assignment2_mobileapp_prototype/module/group/presentation/group_screen.dart';
 import 'package:assignment2_mobileapp_prototype/module/home/controller/home_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/tasks/presentation/tasks_screen.dart';

@@ -2,7 +2,7 @@
 
 Mix&Match is a mobile app prototype designed to support freshers and international students in overcoming common social, cultural, and academic challenges when entering university. The app creates dynamic peer groups, encourages group-based activities, and connects users with mentors to improve social integration and overall well-being.
 
-## 📌 Project Overview
+## 📌 Project Overview - A brief description of the system and its purpose
 
 University life can be overwhelming, especially for international students. Mix&Match helps by:
 - Forming diverse student groups automatically.
@@ -13,33 +13,23 @@ University life can be overwhelming, especially for international students. Mix&
 
 This prototype focuses on demonstrating the foundational features of the platform with clean navigation and modular design.
 
-## 🎯 Key Features
 
-- 🔐 **Student Authentication**: Register/login using university credentials.
-- 👥 **Group Formation**: Randomly assign students into groups of 5, ensuring diversity.
-- 🎓 **Mentor Assignment**: Each group gets a mentor for guidance.
-- 📆 **Event Management**: View events and participate in group activities.
-- 🧩 **Task System**: Complete tasks, upload evidence, and receive rewards.
-- 💬 **Chat System**: Group chat and private chat with mentors.
-- 🔄 **Group Reassignment**: Request group changes if needed.
+## 🛠️ Step-by-step instructions on how to run the project
 
-## Demo 
+> ⚠️ Prerequisites: Make sure you have Flutter SDK installed and your device/emulator is set up properly.
 
-[![Demo Video]](https://bham-my.sharepoint.com/personal/lxk496_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EYuu1wrw5utOkOuq_hztuI0BDL6ozeWU7h9dFnPfNRN7kQ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=8nAAcK)
+## Step 1: Install Flutter SDK
 
+1. Download Flutter SDK from Flutter official site - https://docs.flutter.dev/release/archive
 
-## 🛠️ Tech Stack - Mobile app
+Follow platform-specific installation guides:
+1. Flutter SDK and emulator Installation video for windows - https://www.youtube.com/watch?v=VFDbZk2xhO4
+2. Flutter SDK and emulator installation video for mac - https://www.youtube.com/watch?v=QG9bw4rWqrg
 
-- **Prototype**: Flutter (Dart)
-- **State Management:** GetX 
-- **Target Platform:** Android (Prototype phase)
-
-## 🛠️ How to Run the App
-
-To run the prototype locally:
+## Step 2: Step up the project and run the prototype locally
 
 1. Clone the repository or unzip the folder.
-2. Navigate to the project directory.
+2. Open the root folder in **Visual Studio Code** like below screenshot
 3. Run the following commands:
 
 ```bash
@@ -47,28 +37,43 @@ flutter pub get
 flutter run
 ```
 
-> ⚠️ Make sure you have Flutter SDK installed and your device/emulator is set up properly.
+## 🛠️ List of programming languages, frameworks, or tools
 
-## 👤 Stakeholders
+- **Programming Language**: Dart
+- **Framework**: Flutter
+- **State Management**: GetX
+- **Development Tool**: Visual Studio Code or Android studio
+- **Target Platform**: Android (Prototype Phase)
 
-- **Students and Mentors :** Primary users for accessing resources and managing their university life.
-- **University Staff:** Potential future role in backend support (not in prototype).
-- **System Admin:** System monitoring.
 
 ## 📂 Project Structure
 
 ```
 lib/
-├── main.dart
-├── module/
+├── main.dart              # Application Entry point
+├── core/                  # Utilities (APIConstants, AppColors etc)
+├── module/                # Features
+│   ├── group/             
 │   ├── home/
-│   ├── tasks/
-│   └── group/
+│   ├── login/
+│   └── tasks/
+├── service/                
+    └── model/             # Data models
 ```
 
 Each module includes:
-- `controller/` – Logic and state handling
-- `presentation/` – UI components
+- `controller/` – Handles business logics (API calls) and Holds state of the screen (State management).
+- `presentation/` – UI components (Screens and Widgets)
+
+
+## 🎯 Key Features - A summary of implemented functionalities
+
+- 🔐 **User Authentication**: Login using university credentials.
+- 👥 **Group**: List of students and mentor.
+- 👩🏻‍🎓 **Task - Student**: Complete tasks, and receive rewards (Just a status for Prototype Phase).
+- 👩🏻‍💼 **Task - Mentor**: Validate tasks, and approve rewards (Just a status for Prototype Phase).
+- 🏠 **Home**: Hold Task and group features.
+
 
 ## 👥 Team Members
 
@@ -79,7 +84,3 @@ Each module includes:
 - Mashrur Hossain Chowdhury Ritom (2867717)
 
 Each team member contributed equally (20%).
-
-## 📄 License
-
-*This is a university prototype project. Not intended for commercial use.*
