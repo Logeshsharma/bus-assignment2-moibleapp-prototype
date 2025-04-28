@@ -8,12 +8,12 @@ import 'package:get/get.dart';
 /* 
 
  File: [login_screen.dart]
- 1. This file is to render [Login Screen]
+ 1. This class is to render [LoginScreen]
  2. Private methods such as _loginText, _loginFields, _loginButton to render the each component in the screen.
  3. _userName, _password are the Text field capture the User inputs using userTextController and passwordTextController.
 
   
- Dependencies:
+ Reference document:
  - [https://docs.flutter.dev/get-started] 
 
 */
