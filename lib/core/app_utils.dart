@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppUtils {
@@ -30,5 +31,21 @@ class AppUtils {
   static Future<bool> getLoginState() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getBool('logged-in') ?? false;
+  }
+
+  static void showSnackbar(Color color, String message) {
+    Get.showSnackbar(GetSnackBar(
+        backgroundColor: color,
+        message: message,
+        duration: const Duration(seconds: 3)));
+  }
+
+  static String formatDateRange(String start, String end) {
+    final startDate =
+        DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(start);
+    final endDate = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(end);
+    final formatter = DateFormat('hh:mm a');
+
+    return '${formatter.format(startDate.toLocal())} - ${formatter.format(endDate.toLocal())}';
   }
 }

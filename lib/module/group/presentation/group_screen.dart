@@ -5,6 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
+/* 
+
+ File: [group_screen.dart]
+ 1. This class is to render [GroupScreen]
+ 2. This screen has UI component such as [_groupList, _groupItem, _loadingView and _loadingShimmerItem ]
+ 3. The [_loadingView] has [_profileImage, _nameAndRole] which will display the user image and user (name and role).
+ 4. The [_loadingShimmerItem] is to show shimmer effects (loading) while fetching data from API /get_group_mobile.
+ 5. [groupcontroller] is to manage the UI state for GroupScreen.
+
+  
+ Reference document:
+ - [https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html] 
+
+*/
+
 class GroupScreen extends StatefulWidget {
   const GroupScreen({super.key});
 
@@ -75,7 +90,7 @@ class _GroupScreenState extends State<GroupScreen> {
           duration: Duration(milliseconds: 400 + (index * 250)),
           curve: Curves.decelerate,
           transform: Matrix4.translationValues(
-              groupcontroller.myAnimation() ? 0 : width, 0, 0),
+              groupcontroller.groupLoadedAnimation() ? 0 : width, 0, 0),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

@@ -1,6 +1,6 @@
 import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class TaskListItem extends StatelessWidget {
   final String title;
@@ -49,7 +49,7 @@ class TaskListItem extends StatelessWidget {
                     Icon(Icons.access_time, size: 18, color: AppColor.primary),
                     const SizedBox(width: 4),
                     Text(
-                      _formatDateRange(startDatetime, endDatetime),
+                      AppUtils.formatDateRange(startDatetime, endDatetime),
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
@@ -131,14 +131,5 @@ class TaskListItem extends StatelessWidget {
     }
 
     return true;
-  }
-
-  String _formatDateRange(String start, String end) {
-    final startDate =
-        DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(start);
-    final endDate = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'").parseUtc(end);
-    final formatter = DateFormat('hh:mm a');
-
-    return '${formatter.format(startDate.toLocal())} - ${formatter.format(endDate.toLocal())}';
   }
 }

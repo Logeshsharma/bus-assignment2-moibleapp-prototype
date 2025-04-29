@@ -1,4 +1,5 @@
 import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
+import 'package:assignment2_mobileapp_prototype/core/string_constant.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/controller/login_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/presentation/mix_n_match_logo.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class LoginScreen extends StatelessWidget {
         duration: const Duration(seconds: 2),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('Login',
+          child: Text(StringConstant.login,
               style: TextStyle(
                 color: AppColor.primary,
                 fontWeight: FontWeight.bold,
@@ -103,7 +104,7 @@ class LoginScreen extends StatelessWidget {
         focusNode: loginController.usernameFocusNode,
         decoration: const InputDecoration(
             border: InputBorder.none,
-            hintText: 'Username',
+            hintText: StringConstant.username,
             hintStyle: TextStyle(color: Colors.grey)),
       ),
     );
@@ -129,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               border: InputBorder.none,
-              hintText: 'Password',
+              hintText: StringConstant.password,
               hintStyle: const TextStyle(color: Colors.grey)),
         ),
       ),
@@ -158,7 +159,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        'Login',
+                        StringConstant.login,
                         style: TextStyle(
                             color: AppColor.secondary,
                             fontWeight: FontWeight.w400,

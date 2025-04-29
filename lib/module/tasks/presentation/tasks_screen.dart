@@ -1,4 +1,5 @@
 import 'package:assignment2_mobileapp_prototype/core/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/core/string_constant.dart';
 import 'package:assignment2_mobileapp_prototype/module/login/presentation/login_screen.dart';
 import 'package:assignment2_mobileapp_prototype/module/tasks/contoller/tasks_controller.dart';
 import 'package:assignment2_mobileapp_prototype/module/tasks/presentation/task_item.dart';
@@ -35,7 +36,7 @@ class _TasksScreenState extends State<TasksScreen> {
     return AppBar(
       backgroundColor: AppColor.primary,
       title: Center(
-          child: Text("Tasks",
+          child: Text(StringConstant.task,
               style: TextStyle(
                   color: AppColor.secondary,
                   fontSize: 24,

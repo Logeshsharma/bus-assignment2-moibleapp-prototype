@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:assignment2_mobileapp_prototype/core/api_constant.dart';
+import 'package:assignment2_mobileapp_prototype/core/app_color.dart';
 import 'package:assignment2_mobileapp_prototype/core/app_utils.dart';
 import 'package:assignment2_mobileapp_prototype/core/session_manager.dart';
+import 'package:assignment2_mobileapp_prototype/core/string_constant.dart';
 import 'package:assignment2_mobileapp_prototype/service/model/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +34,7 @@ class TasksController extends GetxController {
         final groupId = SessionManager.instance.getUserSession()?.groupId ?? -1;
         var response = await http.get(
           Uri.parse('${ApiConstant.baseUrl}get_tasks_mobile/$groupId'),
-          headers: {'Content-Type': 'application/json'},
+          headers: ApiConstant.headers,
         );
 
         await Future.delayed(const Duration(seconds: 2));
@@ -52,15 +54,15 @@ class TasksController extends GetxController {
             taskState(TaskState.empty);
           }
         } else {
-          throw Exception('Internal server issue');
+          throw Exception(StringConstant.internalServerIssue);
         }
       } catch (e) {
-        _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
-            'Something went wrong, try agian later.');
+        AppUtils.showSnackbar(
+            AppColor.errorRed, StringConstant.somethingWentWrong);
       }
     } else {
-      _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
-          'Please check you internet connection!');
+      AppUtils.showSnackbar(
+          AppColor.errorRed, StringConstant.noInternetMessage);
     }
   }
 
@@ -74,7 +76,7 @@ class TasksController extends GetxController {
     try {
       final response = await http.post(
         Uri.parse('${ApiConstant.baseUrl}update_task_status'),
-        headers: {'Content-Type': 'application/json'},
+        headers: ApiConstant.headers,
         body: jsonEncode({
           "group_id": groupId,
           "task_id": taskId,
@@ -89,24 +91,16 @@ class TasksController extends GetxController {
         if (data['status'] == 'Updated') {
           await fetchTasks();
 
-          _showSnackbar(Colors.green, 'Task status updated');
+          AppUtils.showSnackbar(Colors.green, 'Task status updated');
         } else {
-          _showSnackbar(const Color.fromARGB(255, 189, 103, 96),
-              'Could not update status');
+          AppUtils.showSnackbar(AppColor.errorRed, 'Could not update status');
         }
       } else {
         throw Exception('Failed to update status!');
       }
     } catch (e) {
-      _showSnackbar(
-          const Color.fromARGB(255, 189, 103, 96), 'Something went wrong');
+      AppUtils.showSnackbar(
+          AppColor.errorRed, StringConstant.somethingWentWrong);
     }
-  }
-
-  void _showSnackbar(Color color, String message) {
-    Get.showSnackbar(GetSnackBar(
-        backgroundColor: color,
-        message: message,
-        duration: const Duration(seconds: 3)));
   }
 }
