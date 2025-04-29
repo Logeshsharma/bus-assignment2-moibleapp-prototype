@@ -1,20 +1,26 @@
-2c59246 - Logeshsharma, 6 minutes ago : Update Readme
-de4124e - Logeshsharma, 16 minutes ago : Update Readme and code refactor
-e2b5d64 - Logeshsharma, 4 days ago : Fix Task screen UI
-a6a3a2e - Logeshsharma, 4 days ago : Code refactor
-bea8023 - Logeshsharma, 11 days ago : Update Readme
-a4d30cb - Logeshsharma, 11 days ago : Update Readme
-0bc5e64 - Logeshsharma, 11 days ago : Update Readme
-cf57ea9 - Logeshsharma, 11 days ago : Update Readme
-445cd86 - Logeshsharma, 2 weeks ago : Integrate task update status API for student and mentor role
-73bc720 - Logeshsharma, 2 weeks ago : Add Task screen and Integrate tasks API
+7ddc862 - Logeshsharma, 16 seconds ago : Code refactor
+02cbf26 - Logeshsharma, 29 hours ago : Add comments for home and login
+f695897 - Logeshsharma, 2 days ago : Add login feature comments
+6935d18 - Logeshsharma, 2 days ago : Add comment for login screen
+62c9856 - Logeshsharma, 2 days ago : Update Readme
+8aa23fd - Logeshsharma, 2 days ago : Add git log text
+2c59246 - Logeshsharma, 2 days ago : Update Readme
+de4124e - Logeshsharma, 2 days ago : Update Readme and code refactor
+e2b5d64 - Logeshsharma, 6 days ago : Fix Task screen UI
+a6a3a2e - Logeshsharma, 6 days ago : Code refactor
+bea8023 - Logeshsharma, 13 days ago : Update Readme
+a4d30cb - Logeshsharma, 13 days ago : Update Readme
+0bc5e64 - Logeshsharma, 13 days ago : Update Readme
+cf57ea9 - Logeshsharma, 13 days ago : Update Readme
+445cd86 - Logeshsharma, 3 weeks ago : Integrate task update status API for student and mentor role
+73bc720 - Logeshsharma, 3 weeks ago : Add Task screen and Integrate tasks API
 1bc3137 - Logeshsharma, 3 weeks ago : Add Home screen
 f6ca650 - Logeshsharma, 3 weeks ago : Refactor group screen
 3a84aec - Logeshsharma, 3 weeks ago : Add Group screen and integrated group API
 a0688e4 - Logeshsharma, 3 weeks ago : Add Task screen navigation
 5a70aab - Logeshsharma, 3 weeks ago : Add login validations and handle session
 7f943ef - Logeshsharma, 3 weeks ago : Intergrate login API
-3369219 - Logeshsharma, 3 weeks ago : Merge pull request #2 from Logeshsharma/develop
-c0e2b75 - Logeshsharma, 3 weeks ago : Merge pull request #1 from Logeshsharma/feature/login
+3369219 - Logesh Sharma, 3 weeks ago : Merge pull request #2 from Logeshsharma/develop
+c0e2b75 - Logesh Sharma, 3 weeks ago : Merge pull request #1 from Logeshsharma/feature/login
 089fd20 - Logeshsharma, 3 weeks ago : Add login screen
-033f0b9 - Logeshsharma, 3 weeks ago : inital commit with app setup
+033f0b9 - Logeshsharma, 4 weeks ago : inital commit with app setup

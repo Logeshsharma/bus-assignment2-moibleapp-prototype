@@ -2,7 +2,7 @@
 
 Mix&Match is a mobile app prototype designed to support freshers and international students in overcoming common social, cultural, and academic challenges when entering university. The app creates dynamic peer groups, encourages group-based activities, and connects users with mentors to improve social integration and overall well-being.
 
-## 📌 Project Overview - A brief description of the system and its purpose
+## Project Overview - A brief description of the system and its purpose
 
 University life can be overwhelming, especially for international students. Mix&Match helps by:
 - Forming diverse student groups automatically.
@@ -14,7 +14,7 @@ University life can be overwhelming, especially for international students. Mix&
 This prototype focuses on demonstrating the foundational features of the platform with clean navigation and modular design.
 
 
-## 🛠️ Step-by-step instructions on how to run the project
+## Step-by-step instructions on how to run the project
 
 > ⚠️ Prerequisites: Make sure you have Flutter SDK installed and your device/emulator is set up properly.
 
@@ -37,7 +37,7 @@ flutter pub get
 flutter run
 ```
 
-## 🛠️ List of programming languages, frameworks, or tools
+## List of programming languages, frameworks, or tools
 
 - **Programming Language**: Dart
 - **Framework**: Flutter
@@ -46,7 +46,7 @@ flutter run
 - **Target Platform**: Android (Prototype Phase)
 
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 lib/
@@ -66,20 +66,20 @@ Each module includes:
 - `presentation/` – UI components (Screens and Widgets)
 
 
-## 🎯 Key Features - A summary of implemented functionalities
+## Key Features - A summary of implemented functionalities
 
-- 🔐 **User Authentication**: Login using university credentials.
-- 👥 **Group**: List of students and mentor.
-- 👩🏻‍🎓 **Task - Student**: Complete tasks, and receive rewards (Just a status for Prototype Phase).
-- 👩🏻‍💼 **Task - Mentor**: Validate tasks, and approve rewards (Just a status for Prototype Phase).
-- 🏠 **Home**: Hold Task and group features.
+- **User Authentication**: Login using university credentials.
+- **Group**: List of students and mentor.
+- **Task - Student**: Complete tasks, and receive rewards (Just a status for Prototype Phase).
+- **Task - Mentor**: Validate tasks, and approve rewards (Just a status for Prototype Phase).
+- **Home**: Hold Task and group features.
 
-## 🖥️ The Webapp Admin page
+## The Webapp Admin page
 
-- 👩🏻‍💻 *Admin*: [Admin panel (Prototype)](https://bus-test-f592.onrender.com/)
+- *Admin*: [Admin panel (Prototype)](https://bus-test-f592.onrender.com/)
 
 
-## 👥 Team Members
+## Team Members
 
 ### Mobile app contribution 
 
@@ -95,7 +95,7 @@ Each module includes:
 
 Each team member contributed equally (20%).
 
-### 👨🏽‍💻 [Git Log](https://github.com/Logeshsharma/bus-assignment2-moibleapp-prototype/blob/main/git-log.txt)
+### [Git Log](https://github.com/Logeshsharma/bus-assignment2-moibleapp-prototype/blob/main/git-log.txt)
 
 
 
