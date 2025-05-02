@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "8df719b9-71f2-47e9-9c0b-8d04969826c5",
+		"name": "BusAssignment2-MobileAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13900763"
+	},
+	"item": [
+		{
+			"name": "Get Group",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bus-test-f592.onrender.com/get_group_mobile/2",
+					"protocol": "https",
+					"host": [
+						"bus-test-f592",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"get_group_mobile",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task Status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"group_id\": 1,\n    \"task_id\": 2,\n    \"status\" : \"Completed\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bus-test-f592.onrender.com/update_task_status",
+					"protocol": "https",
+					"host": [
+						"bus-test-f592",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"update_task_status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tasks",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bus-test-f592.onrender.com/get_tasks_mobile/1",
+					"protocol": "https",
+					"host": [
+						"bus-test-f592",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"get_tasks_mobile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mobile Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"amy\",\n    \"password\" : \"amy.pw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bus-test-f592.onrender.com/login_mobile",
+					"protocol": "https",
+					"host": [
+						"bus-test-f592",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"login_mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Group Messages",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://bus-test-f592.onrender.com/get_group_messages/1/10",
+					"protocol": "https",
+					"host": [
+						"bus-test-f592",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"get_group_messages",
+						"1",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

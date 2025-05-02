@@ -65,6 +65,47 @@ Each module includes:
 - `controller/` – Handles business logics (API calls) and Holds state of the screen (State management).
 - `presentation/` – UI components (Screens and Widgets)
 
+## App Consuming APIs
+
+- **Login API**:
+
+```curl --location 'https://bus-test-f592.onrender.com/login_mobile' 
+--header 'Content-Type: application/json' 
+--data '{
+    "username" : "admin",
+    "password" : "admin.pw"
+}'
+```
+
+- **Get Group Member API**:
+
+```
+curl --location 'https://bus-test-f592.onrender.com/get_group_mobile/1'
+```
+
+- **Get Task API**
+
+```
+curl --location 'https://bus-test-f592.onrender.com/get_tasks_mobile/1'
+```
+
+- **Update Task Statu API**
+
+```
+curl --location 'https://bus-test-f592.onrender.com/update_task_status' 
+--header 'Content-Type: application/json' 
+--data '{
+    "group_id": 1,
+    "task_id": 2,
+    "status" : "Completed"
+}'
+```
+
+- **Get Group Message API**
+```
+curl --location 'https://bus-test-f592.onrender.com/get_group_messages/1/10'
+```
+
 
 ## Key Features - A summary of implemented functionalities
 
