@@ -67,6 +67,8 @@ Each module includes:
 
 ## App Consuming APIs
 
+- [Postman collection](https://github.com/Logeshsharma/bus-assignment2-moibleapp-prototype/blob/main/BusAssignment2-MobileAPIs.postman_collection.json)
+
 - **Login API**:
 
 ```curl --location 'https://bus-test-f592.onrender.com/login_mobile' 
