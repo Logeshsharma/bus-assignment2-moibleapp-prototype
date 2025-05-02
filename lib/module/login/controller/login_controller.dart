@@ -65,7 +65,7 @@ class LoginController extends GetxController {
           Get.off(HomeScreen());
         } else if (response.statusCode == 401) {
           showUsernamePasswordDialog(
-              StringConstant.invalid, StringConstant.apiLoginMessage);
+              StringConstant.invalid, jsonDecode(response.body)['message']);
         } else {
           throw Exception(StringConstant.internalServerIssue);
         }
