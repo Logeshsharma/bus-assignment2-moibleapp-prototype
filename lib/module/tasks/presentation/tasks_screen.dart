@@ -111,7 +111,9 @@ class _TasksScreenState extends State<TasksScreen> {
               0,
               0),
           decoration: BoxDecoration(
-              color: AppColor.secondary,
+              color: task.status != null && task.status == 'Validated'
+                  ? Colors.green[100]
+                  : AppColor.secondary,
               borderRadius: BorderRadius.circular(20)),
           duration: Duration(milliseconds: 403 + (index * 251)),
           child: TaskListItem(
@@ -140,15 +142,15 @@ class _TasksScreenState extends State<TasksScreen> {
   String _statusText(String status) {
     if (role == 'Student') {
       if (status == 'Inactive') {
-        return 'Mark as complete';
+        return 'Ongoing';
       } else if (status == 'Validated') {
-        return 'Rewarded';
-      } else {
         return 'Completed';
+      } else {
+        return 'Pending Approval';
       }
     } else {
       if (status == 'Completed') {
-        return 'Validate';
+        return 'Approve';
       } else {
         return '';
       }

@@ -5,4 +5,6 @@ class AppColor {
   static Color secondary = Colors.white;
   static Color tertiary = const Color.fromRGBO(196, 135, 198, .3);
   static Color errorRed = const Color.fromARGB(255, 189, 103, 96);
+
+  static Color tertiary2 = const Color.fromARGB(70, 168, 23, 240);
 }
