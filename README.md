@@ -4,7 +4,7 @@ Mix&Match is a system designed to support freshers and international students in
 
 This documentation focuses on the mobile component of the Mix&Match system - Mix&Match Android which is primarily used by the Student and Mentor.
 
-### Disclamer: The Current implementation of the Android APP is synchronised with the Web APP via the Link: https://bus-test-f592.onrender.com if the Web App is run locally on a machine by unzipping the project file and using an IDE like pycharm then the APP will not be synchronised with the locally displayed instances of the Web APP. Additionally, the hosting system resets the database approx every 15 mins, and may take up to a minute to load for the first time due to the nature of the hosting platform.
+### Disclaimer: The Current implementation of the Android APP is synchronised with the Web APP via the Link: https://bus-test-f592.onrender.com if the Web App is run locally on a machine by unzipping the project file and using an IDE like pycharm then the APP will not be synchronised with the locally displayed instances of the Web APP. Additionally, the hosting system resets the database approx every 15 mins, and may take up to a minute to load for the first time due to the nature of the hosting platform.
 
 - ## Project Overview - A brief description of Our current system prototype
 
