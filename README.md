@@ -134,7 +134,7 @@ curl --location 'https://bus-test-f592.onrender.com/get_group_messages/1/10'
 ### Mobile app contribution 
 
 - Logesh Sharma Kalimuthan (2845496) 
-- Mashrur Hossain Chowdhury Ritom (2867717) (Documentation)
+- Mashrur Hossain Chowdhury Ritom (2867717)
 
 ### Web app contribution (Admin panel)
 
