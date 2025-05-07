@@ -1,18 +1,31 @@
 # Mix&Match - Speed Friending App for University Freshers
 
-Mix&Match is a mobile app prototype designed to support freshers and international students in overcoming common social, cultural, and academic challenges when entering university. The app creates dynamic peer groups, encourages group-based activities, and connects users with mentors to improve social integration and overall well-being.
+Mix&Match is a system designed to support freshers and international students in overcoming common social, cultural, and academic challenges when entering university. The creates dynamic peer groups, encourages group-based activities, and connects students with mentors to improve social integration and overall well-being.
 
-## Project Overview - A brief description of the system and its purpose
+This documentation focuses on the mobile component of the Mix&Match system - Mix&Match Android which is primarily used by the Student and Mentor.
 
-University life can be overwhelming, especially for international students. Mix&Match helps by:
-- Forming diverse student groups automatically.
-- Assigning mentors for guidance and support.
-- Promoting group tasks and social events.
-- Providing chat features (group and private).
-- Encouraging participation with rewards.
+### Disclaimer: The Current implementation of the Android APP is synchronised with the Web APP via the Link: https://bus-test-f592.onrender.com if the Web App is run locally on a machine by unzipping the project file and using an IDE like pycharm then the APP will not be synchronised with the locally displayed instances of the Web APP. Additionally, the hosting system resets the database approx every 15 mins, and may take up to a minute to load for the first time due to the nature of the hosting platform.
+
+- ## Project Overview - A brief description of Our current system prototype
 
 This prototype focuses on demonstrating the foundational features of the platform with clean navigation and modular design.
+This Prototype for Mix&Match is able to:
+1. Allow students to view their respective groups and tasks and mark them as complete.
+2. Allows Mentors to view tasks and approve them and view respective group members.
 
+
+## Features: Core functionalities implemented in this android app
+- Task completion/validation:
+  - **Students**: Able to view tasks and their statuses from their respective groups and mark their tasks as completed.
+  - **Mentors**: Able to view tasks from their respective groups and approve the tasks pending approval
+
+  *Note:* A significant part of this functionality is implemented in the Mix&Match Admin Web App, as all task details are stored in the Admin App's database. For more details about this functionality and implementation please refer to the Mix&Match Admin Web App's documentation or view the source code at: https://github.com/Logeshsharma/bus-assignment2-prototype.git 
+  
+
+## Features: Secondary/Supporting functionalities
+1. Group Member Viewing
+2. Login
+3. Logout
 
 ## Step-by-step instructions on how to run the project
 
@@ -109,13 +122,7 @@ curl --location 'https://bus-test-f592.onrender.com/get_group_messages/1/10'
 ```
 
 
-## Key Features - A summary of implemented functionalities
 
-- **User Authentication**: Login using university credentials.
-- **Group**: List of students and mentor.
-- **Task - Student**: Complete tasks, and receive rewards (Just a status for Prototype Phase).
-- **Task - Mentor**: Validate tasks, and approve rewards (Just a status for Prototype Phase).
-- **Home**: Hold Task and group features.
 
 ## The Webapp Admin page
 
@@ -127,6 +134,7 @@ curl --location 'https://bus-test-f592.onrender.com/get_group_messages/1/10'
 ### Mobile app contribution 
 
 - Logesh Sharma Kalimuthan (2845496) 
+- Mashrur Hossain Chowdhury Ritom (2867717)
 
 ### Web app contribution (Admin panel)
 
