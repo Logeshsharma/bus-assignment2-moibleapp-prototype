@@ -121,7 +121,10 @@ curl --location 'https://bus-test-f592.onrender.com/update_task_status'
 curl --location 'https://bus-test-f592.onrender.com/get_group_messages/1/10'
 ```
 
+## APK - Downloadable link
 
+- [APK](https://bham-my.sharepoint.com/personal/lxk496_student_bham_ac_uk/_layouts/15/guestaccess.aspx?share=EXeFBJE7jrJOmbL3hGiAb2cBPfHMTGpDa8g8igaZPoLSpA&e=3hWqnW)
+ - If the app is not installing follow this troubleshoot video - [Troubleshoot video](https://www.youtube.com/shorts/kbMM0vMmMPc)
 
 
 ## The Webapp Admin page
